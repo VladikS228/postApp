@@ -1,0 +1,44 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title%}KINO News{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds">
+            <section class="myhero is-white">
+              <div class="myhero">
+                <p class="title">
+                  <img src="{% static './img/Component 1 (1).svg' %}" alt="" width="200" height="200">
+                </p>
+                <div class="herotext">
+                  <p class="subtitle">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur sit deserunt modi et, molestias nostrum unde officiis, minima totam omnis explicabo dignissimos! Quia, beatae. Numquam vero sit fugit nulla?
+                </p>
+                <a href="{% url 'allPost' %}" class="button is-dark"> All News</a>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        <div class="column">
+          <h2 class="title mt-5">Last News</h2>
+                {% for post in posts %}
+                <div class="card mt-5">
+                    <div class="card-content">
+                      <div class="content">
+                        <h3>{{ post.title }} </h3>
+                        <a href="{% url 'postDetail' pk=post.pk %}" class="button is-dark is-outlined">Read</a>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+{% endblock %}
